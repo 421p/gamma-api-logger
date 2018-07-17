@@ -42,7 +42,7 @@ class TrackDurationListenerSpec extends ObjectBehavior
         $request->getContent()->ShouldBeCalled();
         $request->getRequestUri()->willReturn(self::API_URI);
         $bag->all()->willReturn(['formData' => 1111]);
-        $request->getWrappedObject()->request = $bag;
+        $request->getWrappedObject()->request = $bag->getWrappedObject();
 
         $event->isMasterRequest()->willReturn(true);
         $event->getRequest()->willReturn($request);
